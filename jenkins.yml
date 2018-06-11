@@ -1,0 +1,31 @@
+---
+- hosts: testmachines
+  become: yes
+
+  tasks:
+  - name: Install Java JRE
+    apt: name=default-jre state=installed
+    environment:
+      _JAVA_OPTIONS: -Xmx512M
+
+  - name: Install Java JDK
+    apt: name=default-jdk state=installed
+
+  - name: Add Jenkins repository key
+    apt_key:
+      url: https://pkg.jenkins.io/debian/jenkins-ci.org.key
+      state: present
+
+  - name: Add Jenkins repository
+    apt_repository:
+      repo: deb https://pkg.jenkins.io/debian-stable binary/
+      state: present
+
+  - name: Install Jenkins
+    apt: name=jenkins state=installed update_cache=yes
+    notify:
+    - start jenkins
+
+  handlers:
+  - name: start jenkins
+    service: name=jenkins state=restarted
