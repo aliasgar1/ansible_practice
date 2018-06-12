@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+
+  tasks:
+  - name: my loopp one
+    debug:
+      msg: "My loop {{ item }} with index as {{ my_idx + 1 }}"
+    loop:
+      - one
+      - two
+      - three
+    loop_control:
+      index_var: my_idx
+
+  - name: my loopp two
+    debug:
+      msg: 'My loop 2'

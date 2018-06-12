@@ -10,8 +10,12 @@
 
 # Ex 1: Ungrouped hosts, specify before any group headers.
 
-[testmachines]
+#[testmachines]
+[rhel]
+18.221.218.27
 
+[ubuntu]
+18.220.96.150
 
 #green.example.com
 #blue.example.com

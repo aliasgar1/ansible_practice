@@ -1,0 +1,8 @@
+---
+jre_package_name: default-jre
+jdk_package_name: default-jdk
+java_options: -Xmx512M
+jenkins_repo_key_url: https://pkg.jenkins.io/debian/jenkins-ci.org.key
+jenkins_repo: deb https://pkg.jenkins.io/debian-stable binary/
+jenkins_package_name: jenkins
+jenkins_service_name: jenkins
